@@ -1,4 +1,5 @@
 import skills from "@/app/_private/dataSkills";
+import Link from "next/link";
 
 export default function Skills(){
 
@@ -8,6 +9,7 @@ export default function Skills(){
             <div className='skills'>
                 <section className="fullHeight innerPadding--bg">
                     <div className="skillsGrid">
+
 
                         {skills.map( skillName => {
                             return(
