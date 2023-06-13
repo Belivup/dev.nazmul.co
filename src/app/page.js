@@ -1,95 +1,92 @@
-import Image from 'next/image'
-import styles from './page.module.css'
 
-export default function Home() {
-  return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+'use client'
+import Link from "next/link";
+import {useEffect, useState} from "react";
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+export default function Home(){
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+    const [experience, setExperience] = useState({
+        years: 0,
+        months: 0,
+        days: 0,
+        hours: 0,
+        minutes: 0,
+        seconds: 0
+    });
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
+    useEffect(() => {
+        const startDate = new Date(2017, 0, 1); // Set the start date
+        const interval = setInterval(() => {
+            const currentDate = new Date();
+            const timeDiff = currentDate - startDate;
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
+            const years = Math.floor(timeDiff / (1000 * 60 * 60 * 24 * 365));
+            const months = Math.floor((timeDiff % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
+            const days = Math.floor((timeDiff % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+            setExperience({ years, months, days, hours, minutes, seconds });
+        }, 1000);
+
+        return () => clearInterval(interval);
+    }, []);
+
+
+    return(
+        <>
+            <div className='header'>
+                <section className="innerPadding--bg">
+                    <div className="headerGrid">
+
+                        <div className="headerInfo">
+
+                            <div>
+                                <span className='imText'>Hello, I'm</span>
+                                <h1>NAZMUL HOSSAIN</h1>
+                                <p>Founder & CEO, <Link className='greenText' href={'https://Belivup.com'} target={'_blank'}> Belivup Limited </Link></p>
+
+                            </div>
+
+                            <p className='bioDetail'>
+                                Full Stack Software Engineer | Web, Mobile & Desktop App Developer<br/>
+                                Graphic & Branding Identity Designer | UX/UI Designer<br/>
+                                Experienced in Digital Marketing & Managements <br/>
+
+                            </p>
+
+                            <span className="expText" >
+
+                                   <div className="yearMonth">
+                                        <span className="yearexp greenText">{experience.years}</span> Years
+                                        <span className="yearexp greenText">{experience.months}</span> Months
+                                   </div>
+
+                                    <div className="expTime">
+                                        <span className="yearexp greenText">{experience.days}</span> Days
+                                        <span className="yearexp greenText">{experience.hours}</span> Hours
+                                        <span className="yearexp greenText">{experience.minutes}</span> Minutes
+                                        <span className="yearexp greenText">{experience.seconds}</span> Days of Experience
+                                        <span className="happyEmoji">&nbsp;😀</span>
+                                    </div>
+
+                                </span>
+
+
+                            <button className='btn btn--head'>
+                                <i className="icon i-solid" data-icon={'\uf15c'}> &nbsp; </i>
+                                PDF Resume View
+                            </button>
+
+                        </div>
+
+                        <div className="headerImage">
+                            <img className='heroPic' src="/Images/Mask.png" alt="Image of Nazmul Hossain"/>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </>
+    )
 }

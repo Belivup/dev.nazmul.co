@@ -7,7 +7,7 @@ export default function Skills(){
         <>
             <section>
                 <div className="innerPadding--bg">
-                    <h1>Skills Page</h1>
+                    <h1>Work History Page</h1>
                 </div>
             </section>
         </>

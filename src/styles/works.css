@@ -1,0 +1,47 @@
+
+.works{
+    padding-top: 30rem;
+}
+
+.section-title{
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--mainBlue);
+}
+
+.worksGrid{
+    margin-top: 20rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300rem, 1fr));
+    gap: 20rem;
+}
+
+.workBox{
+    background-color: var(--lightBlue);
+    border-radius: 10rem;
+    min-height: 340rem;
+    overflow: hidden;
+    border: 2px solid transparent;
+    cursor: pointer;
+}
+
+.workImg{
+    margin-left: -2rem;
+    margin-right: -2rem;
+}
+
+.workImg img{
+    height: auto;
+    width: 100%;
+    top: 0;
+
+}
+
+.work-info{
+    padding: 10rem 20rem;
+}
+
+.work-head-title{
+    font-size: 20rem;
+    font-weight: 600;
+}

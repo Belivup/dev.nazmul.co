@@ -1,0 +1,103 @@
+.header{
+    background:
+            linear-gradient(to right bottom, rgba(0, 85, 217, 0.8), rgba(0, 66, 178, 0.8)),
+            url("/Images/Nazmul.co_Background.png") center / cover;
+    height: 100vh;
+    width: 100%;
+    color: white;
+}
+
+.headerGrid{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.headerInfo{
+    display: flex;
+    flex-direction: column;
+    row-gap: 60rem;
+}
+
+.imText{
+    text-transform: uppercase;
+    font-size: 20rem;
+    letter-spacing: 5rem;
+}
+
+.headerInfo h1{
+    font-size: 60rem;
+    letter-spacing: 5rem;
+    font-weight: 700;
+}
+
+.headerInfo p{
+    font-size: 16rem;
+    line-height: 2;
+    letter-spacing: 1rem;
+}
+
+button.btn--head{
+    background-color:var(--lightBlue);
+    color: var(--colorWhite);
+    font-weight: 500;
+    align-self: flex-start;
+    border: 2rem solid var(--colorWhite);
+    border-radius: 10rem;
+    padding: 15rem 40rem;
+    transition: all 0.4s ease-in-out;
+    box-shadow: 0 0 40px 5px rgba(0,0,0,0.1);
+
+
+}
+
+button.btn--head:hover{
+    border-radius: 10rem;
+    background-color: var(--textBlue);
+    border: 2rem solid var(--textGreen);
+    box-shadow: 0 0 60px 10px rgba(0,0,0,0.2);
+    color: var(--textGreen);
+}
+
+button.btn--head:hover i{
+    color: var(--textGreen);
+
+}
+
+.greenText{
+    color: var(--textGreen);
+}
+
+
+.heroPic {
+    width: 100%;
+    max-width: 400rem;
+    height: 100%;
+    object-fit: cover;
+    border: 5rem solid var(--colorWhite);
+    border-radius: 20%;
+    box-shadow: 0 0 40px 5px rgba(0,0,0,0.1);
+}
+
+.yearMonth, .expTime{
+    display: flex;
+    align-items: center;
+    column-gap: 5rem;
+}
+
+
+.yearexp{
+    /*padding: 0 10rem;*/
+    width: fit-content;
+    min-width: 30rem;
+    display: inline-block;
+    text-align: center;
+    border-radius: 5rem;
+    background-color: var(--textBlue);
+}
+
+.happyEmoji{
+    font-size: 40rem;
+}
